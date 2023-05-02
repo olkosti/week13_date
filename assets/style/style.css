@@ -23,12 +23,13 @@ h2 {
     font-size: 20px;
     margin-bottom: 10px;
 }
-input,
+#username,
+#link,
 textarea {
     background-color: black;
     border: 2px dashed rgb(205, 0, 96);
     color: white;
-    width: 550px;
+    width: 350px;
 }
 input {
     height: 30px;
@@ -48,7 +49,7 @@ label {
     border: none;
 }
 .chat {
-    margin: 90px 0 0 50px;
+    margin: 90px 0 0 30px;
     max-width: 500px;
 }
 .chat__info {
@@ -56,7 +57,7 @@ label {
     align-items: center;
 }
 .chat__image {
-    width: 100px;
+    width: 50px;
     height: auto;
 }
 .chat__username {
@@ -68,4 +69,18 @@ label {
     margin-top: 30px;
     padding-bottom: 20px;
     border-bottom: 2px dashed rgb(205, 0, 96);
+}
+
+.chat__date {
+    font-size: 10px;
+    margin-left: 70px;
+    font-style: italic;
+}
+.form__showname {
+    margin: 20px 0;
+}
+#showname {
+    width: 15px;
+    height: 15px;
+    margin: 0 20px;
 }
