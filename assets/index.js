@@ -5,8 +5,7 @@ const userCommentElement = document.getElementById("comment");
 
 // Получаю элемент кнопки и чата, куда будет попадать комментарий
 const button = document.querySelector(".form__button"); 
-const chatInfo = document.querySelector(".chat__info"); 
-const chatComment = document.querySelector(".chat__comment"); 
+const chatComments = document.querySelector(".chat__comments"); 
 
 // Создаем переменную для массива со стандартными аватарами пользователя
 const images = [
@@ -20,12 +19,12 @@ const images = [
     "assets/images/penguin.png",
 ];
 
-let now = new Date();
+let time = new Date();
 
 
 //Добавление комментария в чат при клике на кнопку
 button.addEventListener ('click', () => {
-    const userName = userNameElement.value; //извлекаю значение поля ФИО
+    let userName = userNameElement.value; //извлекаю значение поля ФИО
     const userLink = userLinkElement.value; //извлекаю значение поля "Ссылка на аватар"
     const userComment = userCommentElement.value; //извлекаю значение поля "Комментарий"
 
@@ -37,7 +36,8 @@ button.addEventListener ('click', () => {
     } else {
         userImage = userLink;
     }
-    
+    console.log(userImage)
+
     // Функция для работы с регистром
     function normalizeName(name) {
         // Удаляем лишние пробелы в начале и конце имени
@@ -59,10 +59,18 @@ button.addEventListener ('click', () => {
     let correctName = normalizeName(userName); // присваиваем переменную корректному имени
 
     const censorUserComment = userComment.replace(/виагра/gi, "***").replace(/viagra/gi, "***").replace(/xxx/gi, "***").replace(/ххх/gi, "***"); // добавлена цензура в комментариях
-    chatInfo.innerHTML = `<img class="chat__image" src="${userImage}" alt="">
-    <div class="chat__username">${correctName}</div>
-    <div class="chat__date">${now}</div>`; //добавила разметку для добавления аватара и ФИО пользователя
-    chatComment.innerHTML = `<p>${censorUserComment}</p>`; //добавила разметку для добавления комментария пользователя
+    // Проверка radio для имени пользователя
+    if (document.getElementById('check').checked) {
+        userName = correctName;
+    } else {
+        userName = "Username";
+    }
+    chatComments.innerHTML += `<div class="chat__comment">
+    <img class="chat__image" src="${userImage}" alt="image">
+    <div class="chat__username">${userName}</div>
+    <div class="chat__date">${time}</div>
+    <div class="chat__text">${censorUserComment}</div>
+    </div>`; //добавила разметку для добавления комментария пользователя
     document.getElementById("form").reset(); //очистка полей формы после отправки
 });
 

@@ -5,7 +5,7 @@ h2 {
     padding: 0;
 }
 .wrapper {
-    height: 100vh;
+    /* height: 100vh; */
     background-color: black;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -29,7 +29,7 @@ textarea {
     background-color: black;
     border: 2px dashed rgb(205, 0, 96);
     color: white;
-    width: 350px;
+    width: 450px;
 }
 input {
     height: 30px;
@@ -44,6 +44,7 @@ label {
 .form__button {
     padding: 7px 25px;
     margin-top: 30px;
+    margin-bottom: 100px;
     background-color: rgb(205, 0, 96);
     color: white;
     border: none;
@@ -51,35 +52,39 @@ label {
 .chat {
     margin: 90px 0 0 30px;
     max-width: 500px;
-}
-.chat__info {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 .chat__image {
-    width: 50px;
+    width: 70px;
     height: auto;
 }
 .chat__username {
-    color: rgb(205, 0, 96);
     margin-left: 30px;
-    
 }
 .chat__comment {
+    display: grid;
+    grid-template-columns: 70px 300px 1fr;
+    grid-template-rows: 1fr 1fr;
     margin-top: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px dashed rgb(205, 0, 96);
 }
-
 .chat__date {
     font-size: 10px;
-    margin-left: 70px;
+    margin-left: 30px;
     font-style: italic;
+    color: rgb(205, 0, 96);
+}
+.chat__text {
+    grid-area: 2/1/4/4;
+    margin-top: 30px;
+    padding-bottom: 20px;    
+    border-bottom: 2px dashed rgb(205, 0, 96);
 }
 .form__showname {
     margin: 20px 0;
 }
-#showname {
+#showname,
+#check {
     width: 15px;
     height: 15px;
     margin: 0 20px;
